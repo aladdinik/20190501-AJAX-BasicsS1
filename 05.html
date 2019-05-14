@@ -9,11 +9,9 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelementplayer.min.css" rel="stylesheet" type="text/css">
     <link href="zIK/02css/oikGrid.css" rel="stylesheet" type="text/css">
 <!--    <link href="zIK/02css/oikFlex.css" rel="stylesheet" type="text/css">-->
-    <title>05 =ik S1= / jquery ajax / .load() / .get</title>
+    <title>05 =ik S1= / jquery ajax / .load()</title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
-
-
 /*-------------------------- /style //////////////////////////////*/
 </style>
 </head>
@@ -30,8 +28,6 @@
     <div id="ajax1"></div>
     
     <div id="container"></div>
-
-    <div id="container2"></div>
 	
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -47,12 +43,13 @@
     $(`#ajax1`).load(`01ajax.html`); 
     /*it does all the 4 steps that in this one line, unlike with v.js*/
 
+	
     /*.load(response, status, xhr)*/
     $(`#container`).load(`01ajax.html`, function(response, status, xhr){
         console.log(response + status + xhr );
     })
         /*response = xhr.responseText
-        +\ status = success
+        +\ status = success  - which is ok i think
         +\ xhr = [object Object]  - which is xhr object */
 
 	

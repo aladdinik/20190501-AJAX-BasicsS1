@@ -26,6 +26,8 @@
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
 	<div id="ajax"></div>
+	
+	<div id="ajaxJSON"></div>
 
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -36,7 +38,7 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	/* $.get()*/
+/* $.get()*/
 	jQuery.get(`01ajax.html`, (response) => {   /*1+*/
 		$(`#ajax`).html(response);              /*2+*/
 	});
@@ -45,9 +47,17 @@
 		+\ this method works identical to .load() shown in 05.html file*/
 	
 	
-	/**/
-	
-	
+/*$.get(url, data, function(data, status, xhr), dataType); */
+	$.get(
+		`03jsonEmp.json`,              /*url*/
+		{name:`testing`},              /*data - sending query string data*/
+		function(data, status, xhr) {  /*function()*/
+			$(`#ajaxJSON`).html(data); /*func(data) - xhr.responseText*/
+			console.log(status);       /*func(status) - success or ok 200*/
+			console.log(xhr);          /*func(xhr) - xhr object*/
+		}
+	);
+		/*ik not able to insert dataType as it was not accepting for some reason*/
 
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
