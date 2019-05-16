@@ -38,6 +38,7 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
+	
 /* $.get()*/
 	jQuery.get(`01ajax.html`, (response) => {   /*1+*/
 		$(`#ajax`).html(response);              /*2+*/
@@ -52,13 +53,14 @@
 		`03jsonEmp.json`,              /*url*/
 		{name:`testing`},              /*data - sending query string data*/
 		function(data, status, xhr) {  /*function()*/
-			$(`#ajaxJSON`).html(data); /*func(data) - xhr.responseText*/
+			console.log(data);         /*func(data) - xhr.responseText which is js object . 1+ */
 			console.log(status);       /*func(status) - success or ok 200*/
 			console.log(xhr);          /*func(xhr) - xhr object*/
-		}
+		},
+		"json"                         /*dataType*/
 	);
-		/*ik not able to insert dataType as it was not accepting for some reason*/
-
+		/*1+ will not show because it is a js object, unless i change datatype to convert to "html" string*/
+	
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);

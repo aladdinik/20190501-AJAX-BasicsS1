@@ -9,7 +9,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelementplayer.min.css" rel="stylesheet" type="text/css">
     <link href="zIK/02css/oikGrid.css" rel="stylesheet" type="text/css">
 <!--    <link href="zIK/02css/oikFlex.css" rel="stylesheet" type="text/css">-->
-    <title>07 $.get() / show different method using seperate variables</title>
+    <title>14 .done() / .fail() / .always()</title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
 /*-------------------------- /style //////////////////////////////*/
@@ -25,7 +25,7 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	<div id="ajaxJSON"></div>
+	<div id="divy"></div>
 
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -35,36 +35,49 @@
 <script src="zIK/03JS/kiK.js" type="text/javascript"></script>
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
-	
-	
-/*$.get(url, data, function(data, status, xhr), dataType); */
-	/*works the same way as 06.html $.get() but this time i put them in seperate variables*/
-	const url = `03jsonEmp.json`;
-	
-	const data = {name: `reverse`};
-	
-	function ikfunc (data, status, xhr) {
-		$(`#ajaxJSON`).html(data);        /*1+*/
-			console.log(status);     
-			console.log(typeof data); /*string, not an object yet*/
-			console.log(xhr); 
-	}
-	
-	const datatype = `html`;
-	
-	$.get(url, data, ikfunc, datatype);
-		/*1+ will show because converted datatype to "html" string
-		+\ikfunc is the function, seems like i can change its name but the same principles still holds for the parameter.
-	    +\ ik however do not try to change names for many of them as some are unpredictable and do not work according as function do */
-	
 
+	
+	$.ajax(
+		{
+			url: `03jsonEmp.json`,
+			method: `GET`,
+			dataType: `json`,
+			success: function(response, status, xhr) {
+				$(`#divy`).html(response + status + xhr);
+			},
+		} /*END OF annoymous object*/
+	) /*END OF $.ajax()*/
+	
+	
+/*these are the jq xhr object properties that will follow after the ajax method has been executed */
+	.done(function() {                  /*1+*/
+		console.log( "second success" );
+	})
+	
+	.fail(function() {                  /*2+*/
+	console.log( "error" );
+	})
+	
+	.always(function() {                /*3+*/
+	console.log( "complete" );
+	});
+ 
+	
+		/*1+  only applies if ajax was a success
+		2+ only applies if ajax failed
+		3+ always apply no matter if ajax succeed or fails
+		+\ no other code is allowed to go in between the jq ajax and the xhr properties otherwise it will not work
+		+\ they have more or less the same parameter as the jq function */
+	
+	
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
 // cssSupport(cssProperty, cssValue);	
-// listAttributes(DOMnode)
+// listAttributes(DOMnode);
+// serialize(formDOMelement);
 </script>
 </main>
 </body>
