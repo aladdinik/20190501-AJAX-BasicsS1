@@ -45,21 +45,22 @@
 			success: function(response, status, xhr) {
 				$(`#divy`).html(response + status + xhr);
 			},
+			data: {format: `json`}
 		} /*END OF annoymous object*/
 	) /*END OF $.ajax()*/
 	
 	
 /*these are the jq xhr object properties that will follow after the ajax method has been executed */
 	.done(function() {                  /*1+*/
-		console.log( "second success" );
+		console.log( ".done() success" );
 	})
 	
 	.fail(function() {                  /*2+*/
-	console.log( "error" );
+	console.log( ".fail() error" );
 	})
 	
 	.always(function() {                /*3+*/
-	console.log( "complete" );
+	console.log( ".always() complete" );
 	});
  
 	

@@ -112,8 +112,8 @@ img#backgroundImg {
 CLEARFIX   for floated elements
 ++++++++++++++++++++++++++++++++
 */
-.clearfixi::before,
-.clearfixi::after    {
+.clearfixik::before,
+.clearfixik::after    {
     content: " ";
     clear: both;
     display: table;
