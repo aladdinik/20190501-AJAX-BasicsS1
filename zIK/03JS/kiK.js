@@ -6,6 +6,7 @@
 // CHECK CSS PROPERTY:VALUE SUPPORT ON CURRENT BROWSER
 // LIST ALL HTML ATTRIBUTE AND ATTRIBUTE VALUE OF THE DOM ELEMENT	
 // SERIALIZE THE FORM DATA INTO A QUERY STRING (URL-encoded query string:)
+// SERIALIZE JS OBJECT DATA INTO A QUERY STRING (URL-encoded query string:)
 */
 
 /************************************************************/
@@ -179,3 +180,27 @@
 //	serialize(formDOMelement);
 
 /****************************************************/
+
+// SERIALIZE JS OBJECT DATA INTO A QUERY STRING (URL-encoded query string:)
+
+	serializeObject = function(obj) {
+	  const str = [];
+	  for (let p in obj)
+		if (obj.hasOwnProperty(p)) {
+		  str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+		}
+	  return str.join("&");
+	}
+
+	/*eg*/
+//	console.log(serializeObject({
+//	  foo: "hi there",
+//	  bar: "100%"
+//	}));
+	// foo=hi%20there&bar=100%25
+
+//	serializeObject();
+	
+/****************************************************/
+
+	
