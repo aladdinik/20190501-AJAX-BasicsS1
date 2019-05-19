@@ -9,9 +9,12 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelementplayer.min.css" rel="stylesheet" type="text/css">
     <link href="zIK/02css/oikGrid.css" rel="stylesheet" type="text/css">
 <!--    <link href="zIK/02css/oikFlex.css" rel="stylesheet" type="text/css">-->
-    <title>18 flickr api in vanilla javascript ajax (in jsonP really)</title>
+    <title>20 </title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
+
+
+
 /*-------------------------- /style //////////////////////////////*/
 </style>
 </head>
@@ -25,95 +28,27 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	
-          <div>
-            <h1>Flickr Photo Feeder</h1>
-            <p>Choose which kind of animal you'd like to return photos of...</p>
-          </div>
-			
-          <ul class="ulselect">   <!-- users chooses selection -->
-            <li><button>Dog</button></li>
-            <li><button>Cat</button></li>
-            <li><button>Moose</button></li>
-          </ul>
+<pre id="response">Loading...</pre>
 
-        <div id="divphotos"> <!-- where link and img will be inserted --> </div>
-		  
-	
+
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js" type="text/javascript"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelement-and-player.min.js" type="text/javascript"></script>
 <script src="zIK/03JS/kiK.js" type="text/javascript"></script>
-	
-<!--
-<script src="https://api.flickr.com/services/feeds/photos_public.gne
-?format=json&jsoncallback=handleTheResponse" type="text/javascript"></script>
--->
-	
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
-	function handleTheResponse(data) {
-		let jsp = document.getElementById("response").textContent = JSON.stringify(data,null,2);
-	}
+function handleTheResponse(data) {
+    let jsp = document.getElementById("response").textContent = JSON.stringify(data,null,2);
+}
 
-	const kiKscript = document.querySelector(`script[src*="kiK.js"]`);
-	const kiKparent = kiKscript.parentNode;
-	
-	const zscript = document.createElement("script");
-	zscript.src = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=handleTheResponse&tags=london&tagmode=any&format=json";
-	kiKparent.insertBefore(zscript, kiKscript);
-	
-	/*FROM ONLINE*/
-	/********************************/
-	
-	
-	
-	const ulButton = document.getElementsByClassName(`ulselect`)[0];
-//	const jsonPscript = document.querySelectorAll(`script[src*="api.flickr]`);
-//	let jsonps = JSON.stringify(jsonPscript);
-//	console.log(jsonps);
-	
-	ulButton.addEventListener(
-		`click`,
-		(event) => {
-			if (event.target.tagName === `BUTTON`) {
-				let xhr = new XMLHttpRequest();
-				
-				xhr.onreadystatechange = function(event) {
-					if (xhr.readyState === 4) {
-//						if (xhr.status === 200) {
-						
-						console.log(xhr.readyState + xhr.statusText + 	xhr.status);
-						console.log(`ik working`);
-						console.log(xhr.responseText);
-						
-//						}
-					}
-				}/*END xhr.onreadystatechange*/
-				
-				
-				xhr.open(`GET`, `https://api.flickr.com/services/feeds/photos_public.gne
-?jsoncallback=?&format=json`);
-				
-//				xhr.setRequestHeader('Access-Control-Allow-Origin','*');
-//				xhr.setRequestHeader('Content-type','application/json');
-//				xhr.setRequestHeader('Access-Control-Allow-Methods','GET');
-//				xhr.setRequestHeader('X-API-KEY', '/*API KEY*/');
+var script = document.createElement("script");
+script.src = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=handleTheResponse&tags=london&tagmode=any&format=json"
+document.head.appendChild(script);
 
-
-
-				xhr.send();
-				
-//				console.log(event);
-			}/*END if event condition*/
-		}/*END event function*/
-	)/*END .addEventListener()*/
 	
-
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
