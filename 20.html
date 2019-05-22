@@ -9,12 +9,9 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelementplayer.min.css" rel="stylesheet" type="text/css">
     <link href="zIK/02css/oikGrid.css" rel="stylesheet" type="text/css">
 <!--    <link href="zIK/02css/oikFlex.css" rel="stylesheet" type="text/css">-->
-    <title>20 </title>
+    <title>20 FROM ONLINE , IT WILL COLLECT THE API DATA BUT NOT ABLE TO USE IT / DANIEL FLINT CODE</title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
-
-
-
 /*-------------------------- /style //////////////////////////////*/
 </style>
 </head>
@@ -28,8 +25,11 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
+	
+	
 <pre id="response">Loading...</pre>
 
+	
 
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -40,13 +40,18 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-function handleTheResponse(data) {
-    let jsp = document.getElementById("response").textContent = JSON.stringify(data,null,2);
-}
+	
+/*FROM DANIEL FLINT ONLINE*/
+	/*creates a newly script tag with the src url of the api which triggers the callback function (within the query string) 
+	creating his own jsoncallback to send through query string and the callback function triggers handleTheResponse() . then 
+	sends the api json file to a newly created  the id element but i still cannot use it.*/
+	function handleTheResponse(data) {
+		let jsp = document.getElementById("response").textContent = JSON.stringify(data,null,2);
+	}
 
-var script = document.createElement("script");
-script.src = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=handleTheResponse&tags=london&tagmode=any&format=json"
-document.head.appendChild(script);
+	var script = document.createElement("script");
+	script.src = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=handleTheResponse&tags=london&tagmode=any&format=json"
+	document.head.appendChild(script);
 
 	
 /*------------------------- /script /////////////////////////////*/

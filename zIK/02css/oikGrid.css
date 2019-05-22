@@ -16,6 +16,7 @@ line-height: 1.4;
 div#body_wrapper {
 	position: relative;       /*for image background*/
 	height: 100vh;
+	width: 100vw;        /*iK my recent  personal add on as it makes sense*/
 	display: grid;
 	grid-template-columns: 1fr;       /* 1 column since its mobile/tablet*/
 	grid-auto-rows: minmax(180px, auto);   /*depending how many containers you have than set the minimum you prefer*/

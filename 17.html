@@ -9,7 +9,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelementplayer.min.css" rel="stylesheet" type="text/css">
     <link href="zIK/02css/oikGrid.css" rel="stylesheet" type="text/css">
 <!--    <link href="zIK/02css/oikFlex.css" rel="stylesheet" type="text/css">-->
-    <title>17 flickr api in jQuery ajax (in jsonP really)</title>
+    <title>17 flickr api in jQuery ajax (in jsonP really) / SUCCESSFUL JSONP</title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
 /*-------------------------- /style //////////////////////////////*/
@@ -63,7 +63,6 @@
 						tags: animalV        /*3+*/
 					},
 					success: function(response, status, xhr) {
-						
 						let ulist = `<ul>`;
 						
 						$.each(response[`items`], function(index, element) { /*4+*/
@@ -90,10 +89,10 @@
 
 	/*1+ BIM you must add jsoncallback=? as a query string at the end of the url because you want to use json format of the flickr file. also you are using jsonP server. if you do not add the jsoncallback=? than you will get CORS issues
 	1+ perhaps also i notice that the file has a function callback which i do not know is allow, and jsoncallback=? might neutralise it somehow.
-	1+ also jsoncallback will not work as data callback in $.ajax. so you have to already write it in the url no matter what
+	1+ also jsoncallback will not work as data query string callback through $.ajax(). so you have to already write it in the url no matter what
 	
-	1+ format=json will turn the file into json file, as some file will come in xml or etc. 
-	1+ format=json is optional through url query string , you could alternatively use dataType: `json`, through $.ajax() object settings. however you must include it somewhere otherwise it will not work as json file.
+	1+ format=json will turn the file into json file, as some file may come in xml or etc. 
+	1+ format=json is optional through url query string , you could alternatively use dataType: `json`, through $.ajax() object settings. but either way you must include it somewhere otherwise it will not work as json file.
 	1+ BIM `?` is to separate url and query string. `&` is to separate each object query string from each other
 	
 	2+ from flickr api, however it is a must to request format: `json`, file because if you do not than CORS issues will rise again due to recieving a different mime type file from flickr (atom+xml).
@@ -103,7 +102,7 @@
 	6+ there was a double object which is why you see 2 dot notation
 	*/
 	
-	/*BIM VERY IMPORTANT jsoncallback=?&format=json for the url	
+	/*BIM VERY IMPORTANT ?jsoncallback=?&format=json for the url	
 	+/ also you could have added .fail() at the end */
 	
 
