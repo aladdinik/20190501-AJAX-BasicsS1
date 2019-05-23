@@ -9,9 +9,104 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelementplayer.min.css" rel="stylesheet" type="text/css">
     <link href="zIK/02css/oikGrid.css" rel="stylesheet" type="text/css">
 <!--    <link href="zIK/02css/oikFlex.css" rel="stylesheet" type="text/css">-->
-    <title>21 Prabhu ONLINE CODE</title>
+    <title>20190522 iK personal css grid responsive design</title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
+
+
+	.grid {
+		min-width: 100vw;
+		min-height: 100vh;
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr) repeat(3, 1fr) repeat(2, 1fr);
+		grid-gap: 3px;
+		grid-template-areas: 
+			"header"
+			"nav"
+			"main"
+			"main"
+			"main"
+			"aside"
+			"footer";
+		background-color: black;
+	}
+			
+	.header {
+		grid-area: header;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.nav {
+		grid-area: nav;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.main {
+		grid-area: main;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.aside {
+		grid-area: aside;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.footer {
+		grid-area: footer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	
+	@media (min-width: 769px), 
+		(min-width: 700px) and (orientation: landscape) {
+		.grid {
+			grid-template-columns: repeat(7, 1fr);
+			grid-template-rows: repeat(12, 1fr);
+			grid-template-areas:
+				"header header header header header header header"
+				"nav nav nav nav nav nav nav"
+				"main main main main main aside aside"
+				"main main main main main aside aside"
+				"main main main main main aside aside"
+				"main main main main main aside aside"
+				"main main main main main aside aside"
+				"main main main main main aside aside"
+				"main main main main main aside aside"
+				"main main main main main aside aside"
+				"main main main main main aside aside"
+				"footer footer footer footer footer footer footer";
+		}
+	}
+	
+	
+	@media (min-width: 900px) {
+		.grid {
+			grid-template-columns: repeat(8, 1fr);
+			grid-template-rows: repeat(12, 1fr);
+			grid-template-areas:
+				"header header header header header header header header"
+				"nav nav nav nav nav nav nav nav"
+				"main main main main main main aside aside"
+				"main main main main main main aside aside"
+				"main main main main main main aside aside"
+				"main main main main main main aside aside"
+				"main main main main main main aside aside"
+				"main main main main main main aside aside"
+				"main main main main main main aside aside"
+				"main main main main main main aside aside"
+				"main main main main main main aside aside"
+				"footer footer footer footer footer footer aside aside";
+		}
+	}
+	
 /*-------------------------- /style //////////////////////////////*/
 </style>
 </head>
@@ -24,6 +119,17 @@
      instructions how to enable JavaScript in your web browser</a>.
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
+
+	
+  <div class="grid">
+    <header class="header bg-primary text-white">Header</header>
+    <nav class="nav bg-secondary  text-white">Nav</nav>
+    <main class="main bg-success  text-white">Main</main>
+    <aside class="aside bg-danger  text-white">Aside</aside>
+    <footer class="footer bg-warning  text-white">Footer</footer>
+  </div>
+
+	
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js" type="text/javascript"></script>
@@ -32,34 +138,6 @@
 <script src="zIK/03JS/kiK.js" type="text/javascript"></script>
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
-
-	
-	
-/*FROM ONLINE CODER Prabhu*/
-	/*same method as daniel but differently written, and places his on the console.log()
-	iK i still cannot access it here too.*/
-	
-	function jsonp(url, callback) {
-		var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
-		window[callbackName] = function(data) {
-			delete window[callbackName];
-			document.body.removeChild(script);
-			callback(data);
-		};
-
-		var script = document.createElement('script');
-		script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' +  callbackName;
-		document.body.appendChild(script);
-	}
-
-	jsonp('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=callback&tags=london&tagmode=any&format=json', callback);
-
-	function callback(data){
-	 console.log(data);  
-	}
-
-	
-	
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
