@@ -5,6 +5,8 @@
 // FIND ALL SAME SPECIFIC PATTERN 'INDEX NUMBER' IN AN ARRAY
 // CHECK CSS PROPERTY:VALUE SUPPORT ON CURRENT BROWSER
 // LIST ALL HTML ATTRIBUTE AND ATTRIBUTE VALUE OF THE DOM ELEMENT	
+// SERIALIZE THE FORM DATA INTO A QUERY STRING (URL-encoded query string:)
+// SERIALIZE JS OBJECT DATA INTO A QUERY STRING (URL-encoded query string:)
 */
 
 /************************************************************/
@@ -141,6 +143,64 @@
 		}
 	};
 	
-//	listAttributes(DOMnode)
+//	listAttributes(DOMnode);
 
 /****************************************************/
+
+// SERIALIZE THE FORM DATA INTO A QUERY STRING (URL-encoded query string:)
+
+	function serialize(form) {       /*1+*/
+		let field, l, s = [];
+		if (typeof form == 'object' && form.nodeName == "FORM") {
+			const len = form.elements.length;
+			for (let i=0; i<len; i++) {
+				field = form.elements[i];
+				if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
+					if (field.type == 'select-multiple') {
+						l = form.elements[i].options.length; 
+						for (let j=0; j<l; j++) {
+							if(field.options[j].selected)
+								s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[j].value);
+						}
+					} 
+					else if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
+						s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value);
+					}
+				}
+			}  /*END of for loop*/
+		}  /*END OF first if conditon*/
+		return s.join('&').replace(/%20/g, '+');
+	};
+		/*1+ you enter the <form> DOM node which will contain <input>/<textarea>/<select> (<option>) data
+		+\ ensure all the form element have the attribute name="" on it
+		+\ The result is identical to what jQuery's $.serialize() returns. 
+		+\ i slightly modified it so it was up to date with es6
+		source = https://plainjs.com/javascript/ajax/serialize-form-data-into-a-query-string-45/ */
+
+//	serialize(formDOMelement);
+
+/****************************************************/
+
+// SERIALIZE JS OBJECT DATA INTO A QUERY STRING (URL-encoded query string:)
+
+	serializeObject = function(obj) {
+	  const str = [];
+	  for (let p in obj)
+		if (obj.hasOwnProperty(p)) {
+		  str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+		}
+	  return str.join("&");
+	}
+
+	/*eg*/
+//	console.log(serializeObject({
+//	  foo: "hi there",
+//	  bar: "100%"
+//	}));
+	// foo=hi%20there&bar=100%25
+
+//	serializeObject();
+	
+/****************************************************/
+
+	

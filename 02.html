@@ -36,33 +36,38 @@
 	
 /*STATE 0 / UNSENT*/
 	const xhr = new XMLHttpRequest();
-	console.log(`state 0 / UNSENT = ${xhr.status} + ${xhr.statusText} + ${xhr.readyState}`);   
+	console.log(`state 0 / UNSENT = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`);   
 	/* .statusText returns as empty string*/
+	
 	
 /*STATE 1 / OPENED*/
 	xhr.open(`GET`, `01ajax.html`);
-	console.log(`state 1 / OPENED = ${xhr.status} + ${xhr.statusText} + ${xhr.readyState}`);   
+	console.log(`state 1 / OPENED = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`);   
+	
 	
 /*STATE 2 / HEADER_RECIEVED*/
 	xhr.send();
-	console.log(`state 2 HEADER_RECIEVED = ${xhr.status} + ${xhr.statusText} + ${xhr.readyState}`);	
+	console.log(`state 2 HEADER_RECIEVED = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`);	
 
+	
 /*STATE 3 / LOADING*/
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === 4 && xhr.status === 200) {            /*1+*/
-			console.log(`state 3 ok / LOADING = ${xhr.status} + ${xhr.statusText} + ${xhr.readyState}`); /*2+*/
+			console.log(`state 3 ok / LOADING = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`); /*2+*/
 		}
 		else {                                                       /*3+*/
-			window.console.log(`state 3 err / LOADING = ${xhr.status} + ${xhr.statusText} + ${xhr.readyState}`);   
+			window.console.log(`state 3 err / LOADING = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`);   
 		}
 	};
-		
+	
+	
 /*STATE 4 / DONE*/
-	window[ console.log(`state 4 / DONE = ${xhr.status} + ${xhr.statusText} + ${xhr.readyState}`) ];
+	window[ console.log(`state 4 / DONE = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`) ];
 
 	/*1+ notice i added another condition , as this is more reliable for a secure response before loading your callback. 
 	2+ state 3 will not show unless you have a server and the if condition are met
 	3+ second condition if server is not good , you can send an alert for the user with .statusText telling what went wrong
+	3+ notice the else condition runs twice times despite if condition was met. best not to use else condition in the future unless you want to point out errors
 	+\ you will only see output of 0 "" in all the states unless you have a web server or local development environment on.
 	+\ notice i moved callback to step 4 in creating the xhr and it still works fine*/
 	

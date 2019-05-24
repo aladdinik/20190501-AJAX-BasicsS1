@@ -9,10 +9,10 @@
   },
   {
    "name": "charlie",
-   "inoffice": false
+   "inoffice": true
   },
   {
    "name": "delta",
-   "inoffice": true
+   "inoffice": false
   }
 ]
