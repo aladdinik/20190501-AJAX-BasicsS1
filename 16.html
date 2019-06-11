@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 16 jquery.ajax() of the list / IK JUST HAVE A QUICK COMPARISON LOOK TO 15.html v.javascript method-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -16,7 +16,7 @@
 	.in {
 		background-color: springgreen;
 	}
-	
+
 	.out {
 		background-color: red;
 	}
@@ -36,7 +36,7 @@
 
 
 	<div id="divy"></div>
-	
+
 
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -47,7 +47,7 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 	jQuery.ajax(
 		{
 			url: `03jsonEmp.json`,
@@ -55,7 +55,7 @@
 			dataType: `json`,
 			success: function(response, status, xhr) {
 				let ulist = `<ul>`;
-				
+
 				$.each(
 					response,   /*the array object of the json file*/
 					function(index, element) {
@@ -76,14 +76,14 @@
 	.fail(function(jqXHR, textStatus, errorThrown) {
 		console.log(jqXHR + textStatus, errorThrown)
 	});
-	
+
 
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode);
 // serialize(formDOMelement);
 </script>

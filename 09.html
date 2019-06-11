@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 09 $.getJSON() list all in jq / $(document).ready() / $.each()-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -16,7 +16,7 @@
 	.in {
 		background-color: springgreen;
 	}
-	
+
 	.out {
 		background-color: red;
 	}
@@ -49,10 +49,10 @@
 	$(document).ready(           /*waits for page to load first*/
 		$.getJSON(            
 			`03jsonEmp.json`,                 /*url*/
-			
+
 			function(data, status, xhr) {     /*function*/
 				let ulist = `<ul>`;
-				
+
 				$.each(data, function(index, element) {      /*1+*/
 					if ( data[index][`inoffice`] === true ) {
 						ulist += `<li class="in">${element.name}</li>`;  /*2+*/
@@ -61,28 +61,28 @@
 						ulist += `<li class="out">${data[index]["name"]}</li>`; /*3+*/ 
 					}
 				}) /*END OF .each()*/
-				
+
 				ulist += `</ul>`;
 				$("#ajaxdiv").append(ulist);	
-				
+
 			} /*END OF function*/
-			
+
 		) /*END OF $.getJSON()*/
-		
+
 	); /*END OF.ready()*/
-	
+
 /*1+ you have to use the $ sign as your selector, it will not accept anything else form what i can see when using json data
 2+ element is the current value that the loop is on.
 3+ data is similar to element but you have to type the full data info for it to know what the current value is in the loop.
 +\ you might have notice that 09.html file will work more often than 04.html v.js file because jq have better compatibility than v.js */
-	
-	
+
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

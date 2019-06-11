@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 12 serialize in v.js-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -25,21 +25,21 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	
+
 	<form action="ikcontacts" method="post" id="formz">
 		<input type="text" id="inputz" name="nameZ" placeholder="name">
-		
+
 		<textarea name="textareaz"></textarea>
-		
+
 		<select name="ikselect">
 			<option value="alpha">ALPHA</option>
 			<option value="bravo">BRAVO</option>
 			<option value="charlie">CHARLIE</option>
 		</select>
-		
+
 		<input type="submit" id="iksignup" value="Sign Up">
 	</form>
-	
+
 
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -50,11 +50,11 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 /*IK SERIALIZE V.JS FROM ONLINE HOWEVER JUST HAVE A LOOK, YOU DO NOT NEED TO STUDY IF YOU DO NOT WANT TO AS IT DOES EXACTLY WHAT JQ .serialize() DO. 
 +\ also i have stored it as my personal function
 +\ but it is interesting long the process is*/
-	
+
 	function serialize(form) {       /*1+*/
 		let field, l, s = [];
 		if (typeof form == 'object' && form.nodeName == "FORM") {
@@ -77,30 +77,30 @@
 		}  /*END OF first if conditon*/
 		return s.join('&').replace(/%20/g, '+');
 	};
-	
-	
-	
+
+
+
 	/*the ajax code to implement the serialize() code*/
 	const formz = document.getElementById(`formz`);
-	
+
 		$(`form`).submit(                      
 			function(event) {
 				event.preventDefault();        
-				
+
 				const url = $(`form`).attr(`action`);    
 				const formData = serialize(formz);       /*1+*/
-				
+
 				console.log(formData);
 			} /*END a.function()*/
 		); /*END .submit()*/
 			/*1+i used the v.js way to serialize which was taken from an online sourse.*/
-	
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

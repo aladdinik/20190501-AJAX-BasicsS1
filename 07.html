@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 07 $.get() / show different method using seperate variables-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -35,35 +35,35 @@
 <script src="zIK/03JS/kiK.js" type="text/javascript"></script>
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
-	
-	
+
+
 /*$.get(url, data, function(data, status, xhr), dataType); */
 	/*works the same way as 06.html $.get() but this time i put them in seperate variables*/
 	const url = `03jsonEmp.json`;
-	
+
 	const data = {name: `reverse`};
-	
+
 	function ikfunc (data, status, xhr) {
 		$(`#ajaxJSON`).html(data);        /*1+*/
 			console.log(status);     
 			console.log(typeof data); /*string, not an object yet*/
 			console.log(xhr); 
 	}
-	
+
 	const datatype = `html`;
-	
+
 	$.get(url, data, ikfunc, datatype);
 		/*1+ will show because converted datatype to "html" string
 		+\ikfunc is the function, seems like i can change its name but the same principles still holds for the parameter.
 	    +\ ik however do not try to change names for many of them as some are unpredictable and do not work according as function do */
-	
+
 
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

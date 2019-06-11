@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 03 JSON.parse() / JSON.stringify() / typeof-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -9,7 +9,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.10/mediaelementplayer.min.css" rel="stylesheet" type="text/css">
     <link href="zIK/02css/oikGrid.css" rel="stylesheet" type="text/css">
 <!--    <link href="zIK/02css/oikFlex.css" rel="stylesheet" type="text/css">-->
-    <title>03 JSON.parse() / JSON.stringify() / typeof </title>
+    <title>03 JSON.parse() / JSON.stringify() / typeof</title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
 /*-------------------------- /style //////////////////////////////*/
@@ -33,14 +33,14 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 	const xhr = new XMLHttpRequest();
-	
+
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === 4 && xhr.status === 200) {
 			console.log(typeof xhr);              /*object*/
 			console.log(typeof xhr.responseText); /*string*/
-			
+
 			let parseXHR = JSON.parse(xhr.responseText); /*converted to object*/
 			console.log(typeof parseXHR);         /*object*/
 			console.log(parseXHR);    /*displays object .json file*/
@@ -51,23 +51,23 @@
 			console.log(parseXHR);    /*displays string .json file*/
 		}
 	};
-	
+
 	xhr.open(`GET`, `03jsonEmp.json`);
-	
+
 	xhr.send();
 
 	/*JSON.parse() converts any string into js object
-	+\JSON.stringify() converts any js object into string
+	+\JSON.stringify() converts any js object into json string
 	+\you do not have to use .responseText in all scenerio just remember to basic rule for JSON. method
 	+\ typeof tells you what js data type it is*/
 
-	
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

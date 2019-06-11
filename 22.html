@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 22 IK solution to api jsonp but only if you set the url query string before and it cannot be changed-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -25,7 +25,7 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	
+
 		<div>
 			<h1>Flickr Photo Feeder</h1>
 			<p>Choose which kind of animal you'd like to return photos of...</p>
@@ -39,7 +39,7 @@
 
         <div id="divphotos"> <!-- where link and img will be inserted --> </div>
 
-	
+
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js" type="text/javascript"></script>
@@ -50,7 +50,7 @@
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
 /*IK i did not finish it but basically you do not use xhr object at all and instead enter your code within the callback function which is called by the url query string callback. however it is not adaptable and you can only do individual url*/
-	
+
 	const ulButton = document.getElementsByClassName(`ulselect`)[0];
 	const divPhotos = document.getElementById(`divphotos`);
 
@@ -70,45 +70,45 @@
 
 	jsonp('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=callback&format=json', callback);
 
-	
-	
-	
-	
+
+
+
+
 /*using the online callback function to type in my codes*/
 	function callback(data){
-		
+
 		ulButton.addEventListener(`click`, function(event) {
 			if(event.target.tagName === `BUTTON`) {
-				
-				
-				
+
+
+
 	/*//////// 1+ THIS WILL NOT WORK which i tried to change the url query string to search dog /////////////*/
 				console.log(jsonp('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=callback&format=json&tags=dog', callback));
-				
-				
+
+
 				console.log(data);
 			}/*END if event.target.tagName*/
 		})/*END ulButton.addEventListener()*/
 	}/*END callback function*/
-	
-	
+
+
 	/*/////////
 	1+ i did see the result in console.log but it is undefined.
 	1+ because it is under the query string callback function. therefore it is fine if you want to use the current json data however you will not be able to change it `dog cat mouse` as we want to do here because that involves changing the url
 	1+ unless you individually set the url and query string for each button which is fine but not adaptable for a search box if we wanted to add one*/
-	
+
 	/* great solution to using jsonp however you cannot change the url easily using query string which prevents you from using things like search box.
 	+\ basically you do not use the xhr object at all and type your codes within the callback function that the url query string calls upon.
 	+\ ik i did not finish it but it can be done individually `dog cats mouse`. but still unsatisfying to do it this way
 	*/
-	
+
 
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode);
 // serialize(formDOMelement);
 // serializeObject();

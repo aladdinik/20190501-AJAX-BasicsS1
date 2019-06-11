@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 11 .serialize()-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -25,14 +25,14 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	
+
 <!--	i suspect action="" is the url for backend stylesheet file-->
 	<form action="ikcontacts" method="post">
 		<input type="text" id="ikname" name="nameZ" placeholder="name">
 		<input type="text" id="ikemail" name="emailZ" placeholder="email">
 		<input type="submit" id="iksignup" value="Sign Up">
 	</form>
-	
+
 
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -43,17 +43,17 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 	$(document).ready(
 		$(`form`).submit(                      
 			function(event) {
 				event.preventDefault();        
-				
+
 				const url = $(`form`).attr(`action`);    
 				const formData = $(`form`).serialize();  /*1+*/
-				
+
 				console.log(formData);
-								
+
 			} /*END a.function()*/
 		) /*END .submit()*/
 	); /*END .ready()*/
@@ -62,13 +62,13 @@
 	1+ .serialize() will take all the name attribute value along with the value within the input and create a query string
 	*/
 
-	
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

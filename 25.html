@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- enter brief description of the page-->
+<html lang="en"> <!-- 25 2 flickr api using v.js /  including removing previous search, search button loading / highlight buttons-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -12,9 +12,6 @@
     <title>25 2 flickr api using v.js /  including removing previous search, search button loading / highlight buttons</title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
-
-	
-
 /*-------------------------- /style //////////////////////////////*/
 </style>
 </head>
@@ -28,8 +25,8 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	
-	
+
+
 	<div>
 		<h1>Flickr Photo Feeder</h1>
 		<p>Choose which kind of animal you'd like to return photos of...</p>
@@ -42,8 +39,8 @@
 
 	<div id="divphotos"> <!-- where link and img will be inserted --></div>
 
-	
-	
+
+
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js" type="text/javascript"></script>
@@ -53,13 +50,13 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
-	
+
+
 /*list of DOMs*/
 	const universeButton = document.querySelector(`li:first-of-type button`);
 	const kratosButton = document.querySelector(`li:last-of-type button`);
 	const divPhotos = document.getElementById(`divphotos`);
-	
+
 /*daniel flint code for v.js api */
 /*UNIVERSE BUTTON*/
 	/* i change callback function and names it universe
@@ -67,7 +64,7 @@
 	const scriptUniverse = document.createElement("script");
 	scriptUniverse.src = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=universe&format=json&tags=universe"
 	document.head.appendChild(scriptUniverse);
-	
+
 	function universe(data) {
 		/*waits for html to load first*/
 		window.addEventListener(`load`, function(){
@@ -117,10 +114,10 @@
 	};/*END function universe(data) */
 
 	/*however i was not sure how to insert error message when something went wrong, mostly where to place the throw, and what criteria*/
-	
+
 /***********************************************/
 
-	
+
 /*KRATOS BUTTON*/
 	/* copied and paste the universe button function. so it is exactly the same as above.
 	+\ only change the necessary parts to kratos and any other adjustment needed 
@@ -129,11 +126,11 @@
 	const scriptKratos = document.createElement("script");
 	scriptKratos.src = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=kratos&format=json&tags=kratos"
 	document.head.appendChild(scriptKratos);
-	
+
 	function kratos(data) {
 		/*waits for html to load first*/
 		window.addEventListener(`load`, function(){
-		
+
 			let jsp = JSON.stringify(data,null,2);
 			/*convert to js object*/
 			const jsonp = JSON.parse(jsp);
@@ -178,14 +175,14 @@
 		})/*END window.addEventListener(`load`, function()*/
 	};/*END function kratos(data) */
 
-	
-	
+
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode);
 // serialize(formDOMelement);
 // serializeObject();

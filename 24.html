@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 24 search field using $.ajax() with flickr api / including removing any previous search, search button loading and disabled search box / errors included-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -12,9 +12,6 @@
     <title>24 search field using $.ajax() with flickr api / including removing any previous search, search button loading and disabled search box / errors included</title>
 <style>
 /* + + + + + + + + + + + + + STYLE -------------------------------*/
-
-
-
 /*-------------------------- /style //////////////////////////////*/
 </style>
 </head>
@@ -28,7 +25,7 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	
+
 	<div>
 		<h1>Flickr Photo Feeder</h1>
 		<p>Choose which kind of animal you'd like to return photos of...</p>
@@ -40,7 +37,7 @@
 	</form>
 
 	<div id="divphotos"> <!-- where link and img will be inserted --> </div>
-	
+
 
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -77,19 +74,19 @@
 					},
 					success: function(response, status, xhr) {
 						let ul = `<ul>`
-						
+
 						$.each(response[`items`], function(index, element) {
 							ul += `<li>`;
-							
+
 							let aUrl = `<a href="${response[`items`][index][`link`]}">LINKS</a>`;
-							
+
 							let img = `<img src="${element.media.m}">`;
-							
+
 							ul += aUrl;
 							ul += img;
 							ul += `</li>`;
 						})/*END $.each()*/
-						
+
 						ul += `</ul>`;
 						$(`#divphotos`).append(ul);
 						/*turn the search box submit back to normal when search is over*/
@@ -98,29 +95,29 @@
 					}/*END success: function*/
 				}/*END $.ajax object setting*/
 			)/*END $.ajax()*/
-			
+
 			/*incase or error that might occur*/
 			.fail(function(jqXHR, textStatus, errorThrown) {
 				$(`#divphotos`).html(jqXHR.status + " " + jqXHR.statusText + " - try again or refresh ik");
-				
+
 				/*turn the search box submit back to normal when search is over*/
 				$(`[type="submit"]`).val(`Search`);
 				$(`[type="search"]`).prop(`disabled`, false);
 			})/*END .fail()*/
 		})/*END .on()*/
 	)/*END .ready()*/
-	
+
 /*good work ik, mostly in jq, due to me wanting to practice jq as well
 +\ also i could have added `no result found` too*/
-	
-	
-	
+
+
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode);
 // serialize(formDOMelement);
 // serializeObject();

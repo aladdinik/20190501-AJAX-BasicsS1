@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 19 IK FAILED V.JS AJAX WITH ONLINE CODE I FOUND-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -48,9 +48,9 @@
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
 	const ulButton = document.getElementsByClassName(`ulselect`)[0];
-	
+
 	/*//////////////////////////////*/
-	
+
 	ulButton.addEventListener(
 		`click`,
 		(event) => {
@@ -71,48 +71,48 @@
 
 				jsonp('https://api.flickr.com/services/feeds/photos_public.gne?		  jsoncallback=callback&format=json', callback);
 
-				
+
 				function callback(data){
 					console.log(data); } 
-	
+
 	/*********************/
-				
+
 				let xhr = new XMLHttpRequest();
-				
+
 				xhr.onreadystatechange = function(event) {
 					if (xhr.readyState === 4) {
 //						if (xhr.status === 200) {
-						
+
 						console.log(xhr.readyState + xhr.statusText + 	xhr.status);
 						console.log(`ik working`);
 						console.log(xhr.responseText);
-						
+
 //						}
 					}
 				}/*END xhr.onreadystatechange*/
-				
-				
+
+
 				xhr.open(`GET`, `https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=callback&format=json`);
-				
+
 //				xhr.setRequestHeader('Access-Control-Allow-Origin','*');
 //				xhr.setRequestHeader('Content-type','application/json');
 //				xhr.setRequestHeader('Access-Control-Allow-Methods','GET');
 //				xhr.setRequestHeader('X-API-KEY', '/*API KEY*/');
 
 				xhr.send();
-				
+
 //				console.log(event);
 				/*END callback function*/
 			}/*END if event condition*/
 		}/*END event function*/
 	)/*END .addEventListener()*/
-	
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode);
 // serialize(formDOMelement);
 // serializeObject();

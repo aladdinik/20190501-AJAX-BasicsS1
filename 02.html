@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 02 XHR object 0-4 state / .status / .statusText-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -33,23 +33,23 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 /*STATE 0 / UNSENT*/
 	const xhr = new XMLHttpRequest();
 	console.log(`state 0 / UNSENT = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`);   
 	/* .statusText returns as empty string*/
-	
-	
+
+
 /*STATE 1 / OPENED*/
 	xhr.open(`GET`, `01ajax.html`);
 	console.log(`state 1 / OPENED = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`);   
-	
-	
+
+
 /*STATE 2 / HEADER_RECIEVED*/
 	xhr.send();
 	console.log(`state 2 HEADER_RECIEVED = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`);	
 
-	
+
 /*STATE 3 / LOADING*/
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === 4 && xhr.status === 200) {            /*1+*/
@@ -59,8 +59,8 @@
 			window.console.log(`state 3 err / LOADING = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`);   
 		}
 	};
-	
-	
+
+
 /*STATE 4 / DONE*/
 	window[ console.log(`state 4 / DONE = ${xhr.readyState} + ${xhr.statusText} + ${xhr.status}`) ];
 
@@ -70,14 +70,14 @@
 	3+ notice the else condition runs twice times despite if condition was met. best not to use else condition in the future unless you want to point out errors
 	+\ you will only see output of 0 "" in all the states unless you have a web server or local development environment on.
 	+\ notice i moved callback to step 4 in creating the xhr and it still works fine*/
-	
-	
+
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 15 IK PRACTICE more precise, BUT NOT REQURED TO STUDY BUT HAVE A LOOK COMPARISON TO 16.html jquery method-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -16,7 +16,7 @@
 	.in {
 		background-color: springgreen;
 	}
-	
+
 	.out {
 		background-color: red;
 	}
@@ -34,7 +34,7 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	
+
 	<div id="divy"></div>
 
 	
@@ -49,14 +49,14 @@
 
 
 	const xhr = new XMLHttpRequest;
-	
+
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			if (xhr.status === 200) {
 				const pxhr = JSON.parse(xhr.responseText);
 				let ulist = document.createElement(`ul`);
 				let list = ``;
-				
+
 				for (let i = 0; i < pxhr.length; i++) {
 					if (pxhr[i][`inoffice`] === true) {
 						list += `<li class="in">${pxhr[i][`name`]}</li>`;
@@ -65,28 +65,28 @@
 						list += `<li class="out">${pxhr[i][`name`]}</li>`;
 					}/*END inoffice false*/
 				}/*END for loop*/
-				
+
 				ulist.innerHTML = list;
 				document.getElementById(`divy`).appendChild(ulist);	
 			} /*END if .status === 200*/
-			
+
 			else {
 				console.log(xhr.status + xhr.statusText);
 			} /*END if .status != 200*/
 		}/*END if xhr.readyState === 4*/
 	}; /*END xhr.onreadystatechange*/
-	
+
 	xhr.open(`GET`, `03jsonEmp.json`);
-	
+
 	xhr.send();
-	
+
 
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode);
 // serialize(formDOMelement);
 </script>

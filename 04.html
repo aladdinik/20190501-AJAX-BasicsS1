@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 04 using ajax and json file to make live list attendance-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -16,7 +16,7 @@
 	.in {
 		background-color: springgreen;
 	}
-	
+
 	.out {
 		background-color: red;
 	}
@@ -33,7 +33,7 @@
      instructions how to enable JavaScript in your web browser</a>.
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
-	
+
 	<div class="container"></div>
 
 <!-------------------------- /main /////////////////////////////-->
@@ -45,19 +45,19 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 	const div_container = document.getElementsByClassName(`container`)[0];
-	
+
 	const xhr = new XMLHttpRequest();
-	
+
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === 4) {
 			if (xhr.status === 200) {
 				/*convert to js object*/
 				let parseXhr = JSON.parse(xhr.responseText); 
-				
+
 				let ulist = `<ul>`;
-				
+
 				for (let i = 0; i < parseXhr.length; i++) {
 					if (parseXhr[i][`inoffice`] === true) {
 						ulist += `<li class="in">${parseXhr[i][`name`]} - IN</li>`;
@@ -66,20 +66,20 @@
 					else if (parseXhr[i][`inoffice`] === false) {
 						ulist += `<li class="out">${parseXhr[i][`name`]} - OUT</li>`;
 					}
-					
+
 					/*not important but to show object on console*/
 					console.log(parseXhr[i])  
 				}
-				
+
 				ulist += `</ul>`;   
-				
+
 				/*add list to html*/
 				div_container.innerHTML = ulist;
-				
+
 				/*NI but to show html element on CL*/
 				console.log( ulist) 
 			}
-			
+
 			/*if anything goes wrong, than we can see why*/
 			else {                        
 				window.alert(xhr.statusText + xhr.status);
@@ -88,12 +88,12 @@
 		}
 		/*ik i could also do another else alert here but unnecessary*/
 	}
-	
+
 	/*using .json object file*/
 	xhr.open(`GET`, `03jsonEmp.json`);
-	
+
 	xhr.send();
-	
+
 	/*this is the frontend side of ajax, however the backend would set up the forms and database for this example of attendance*/
 
 /*------------------------- /script /////////////////////////////*/
@@ -101,7 +101,7 @@
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

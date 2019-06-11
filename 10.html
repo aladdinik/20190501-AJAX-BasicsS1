@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 10 $.post() / .serialize() / .submit() / sending form data through post method-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -25,14 +25,14 @@
     </noscript>
 <!--+ + + + + + + + + + + + + MAIN ------------------------------->
 
-	
+
 <!--	i suspect action="" is the url for backend stylesheet file-->
 	<form action="ikcontacts" method="post">
 		<input type="text" id="ikname" name="nameZ" placeholder="name">
 		<input type="text" id="ikemail" name="emailZ" placeholder="email">
 		<input type="submit" id="iksignup" value="Sign Up">
 	</form>
-	
+
 
 <!-------------------------- /main /////////////////////////////-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -43,9 +43,9 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 /*iK details on .serialize() will be on next html file*/
-	
+
 	$(`form`).submit(                      /*1+*/
 		function(event) {
 			event.preventDefault();        /*2+*/
@@ -66,18 +66,18 @@
 	/*1+ .submit() is a jq submit click event handler
 	2+ prevent page reloading, otherwise form will reload page
 	3+ changes the string within the submit box
-	
+
 	+\ will not work when pressed submit because i think its because of action="" url non existence. probably requires backend developer here
 	+\ could have use `this` in both url and data	
 	+\ i could have added $(document.ready() for this code */
 
-	
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

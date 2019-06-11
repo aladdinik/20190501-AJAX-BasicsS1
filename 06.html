@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 06 $.get()-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -38,7 +38,7 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 /* $.get()*/
 	jQuery.get(`01ajax.html`, (response) => {   /*1+*/
 		$(`#ajax`).html(response);              /*2+*/
@@ -46,8 +46,8 @@
 		/*1+ jQuery.get() or $.get() . you do not use a css selector with .get().
 		2+  .html identical to .innerHTML
 		+\ this method works identical to .load() shown in 05.html file*/
-	
-	
+
+
 /*$.get(url, data, function(data, status, xhr), dataType); */
 	$.get(
 		`03jsonEmp.json`,              /*url*/
@@ -60,13 +60,13 @@
 		"json"                         /*dataType*/
 	);
 		/*1+ will not show because it is a js object, unless i change datatype to convert to "html" string*/
-	
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode)
 </script>
 </main>

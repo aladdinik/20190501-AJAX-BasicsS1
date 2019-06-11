@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- enter brief description of the page-->
+<head><!-- 14 .done() / .fail() / .always()-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <!--    <link href="zIK/02css/aReset.css" rel="stylesheet" type="text/css">-->
@@ -36,7 +36,7 @@
 <script>
 /* + + + + + + + + + + + + + SCRIPT ------------------------------*/
 
-	
+
 	$.ajax(
 		{
 			url: `03jsonEmp.json`,
@@ -48,35 +48,35 @@
 			data: {format: `json`}
 		} /*END OF annoymous object*/
 	) /*END OF $.ajax()*/
-	
-	
+
+
 /*these are the jq xhr object properties that will follow after the ajax method has been executed */
 	.done(function() {                  /*1+*/
 		console.log( ".done() success" );
 	})
-	
+
 	.fail(function() {                  /*2+*/
 	console.log( ".fail() error" );
 	})
-	
+
 	.always(function() {                /*3+*/
 	console.log( ".always() complete" );
 	});
  
-	
+
 		/*1+  only applies if ajax was a success
 		2+ only applies if ajax failed
 		3+ always apply no matter if ajax succeed or fails
 		+\ no other code is allowed to go in between the jq ajax and the xhr properties otherwise it will not work
 		+\ they have more or less the same parameter as the jq function */
-	
-	
+
+
 /*------------------------- /script /////////////////////////////*/
 // printD(html);
 // everyStyles(DOMelement);
 // ascii(a, b);
 // patternIndexNumber(theArrayz, searchThisValue);
-// cssSupport(cssProperty, cssValue);	
+// cssSupport(cssProperty, cssValue);
 // listAttributes(DOMnode);
 // serialize(formDOMelement);
 </script>
