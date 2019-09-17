@@ -52,7 +52,7 @@
 
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === 4) {
-			if (xhr.status === 200) {
+//			if (xhr.status === 200) {
 				/*convert to js object*/
 				let parseXhr = JSON.parse(xhr.responseText); 
 
@@ -85,7 +85,7 @@
 				window.alert(xhr.statusText + xhr.status);
 				console.log(xhr.readyState)
 			}
-		}
+//		}
 		/*ik i could also do another else alert here but unnecessary*/
 	}
 

@@ -72,7 +72,7 @@
 
 /*ajax 2 triggered by button onclick*/
 	const xhr2 = new XMLHttpRequest();         
-	
+
     xhr2.onreadystatechange = function(){      
       if(xhr2.readyState === 4){               
           document.querySelector('.ajax2').innerHTML = xhr2.responseText; 

@@ -44,6 +44,7 @@
 			dataType: `html`,
 			success: function(response, status, xhr) {
 				$(`#divy`).html(response + status + xhr);
+				console.log(response + status + xhr);
 			},
 			data: {zname : `ikHOLY`}
 		} /*END OF annoymous object*/

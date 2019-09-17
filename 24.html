@@ -50,62 +50,62 @@
 
 
 /*IK HAVE A LOOK, THERE IS SOME GOOD STUFF HERE*/
-	$(document).ready(
-		$(`[type="submit"]`).on(`click`, function(event) {
-			/*prevent form refreshing*/
-			event.preventDefault();
-			/*indicate searching to user*/
-			$(this).val(`Searching...`);
-			/*disable search box while searching*/
-			$(`[type="search"]`).prop("disabled", true);
-			/*removes all previous search <ul> list and any errors if any*/
-			$(`#divphotos *`).remove();
-			/*user search value*/
-			let searchValue = $(`[type="search"]`).val();
-			
-			$.ajax(
-				`https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json`,
-				{
-					method: `GET`,
-					dataType: `json`,
-					data: {
-						tags: searchValue,
-						format: `json`
-					},
-					success: function(response, status, xhr) {
-						let ul = `<ul>`
+$(document).ready(
+	$(`[type="submit"]`).on(`click`, function(event) {
+		/*prevent form refreshing*/
+		event.preventDefault();
+		/*indicate searching to user*/
+		$(this).val(`Searching...`);
+		/*disable search box while searching*/
+		$(`[type="search"]`).prop("disabled", true);
+		/*removes all previous search <ul> list and any errors if any*/
+		$(`#divphotos *`).remove();
+		/*user search value*/
+		let searchValue = $(`[type="search"]`).val();
 
-						$.each(response[`items`], function(index, element) {
-							ul += `<li>`;
+		$.ajax(
+			`https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json`,
+			{
+				method: `GET`,
+				dataType: `json`,
+				data: {
+					tags: searchValue,
+					format: `json`
+				},
+				success: function(response, status, xhr) {
+					let ul = `<ul>`
 
-							let aUrl = `<a href="${response[`items`][index][`link`]}">LINKS</a>`;
+					$.each(response[`items`], function(index, element) {
+						ul += `<li>`;
 
-							let img = `<img src="${element.media.m}">`;
+						let aUrl = `<a href="${response[`items`][index][`link`]}">LINKS</a>`;
 
-							ul += aUrl;
-							ul += img;
-							ul += `</li>`;
-						})/*END $.each()*/
+						let img = `<img src="${element.media.m}">`;
 
-						ul += `</ul>`;
-						$(`#divphotos`).append(ul);
-						/*turn the search box submit back to normal when search is over*/
-						$(`[type="submit"]`).val(`Search`);
-						$(`[type="search"]`).prop(`disabled`, false);
-					}/*END success: function*/
-				}/*END $.ajax object setting*/
-			)/*END $.ajax()*/
+						ul += aUrl;
+						ul += img;
+						ul += `</li>`;
+					})/*END $.each()*/
 
-			/*incase or error that might occur*/
-			.fail(function(jqXHR, textStatus, errorThrown) {
-				$(`#divphotos`).html(jqXHR.status + " " + jqXHR.statusText + " - try again or refresh ik");
+					ul += `</ul>`;
+					$(`#divphotos`).append(ul);
+					/*turn the search box submit back to normal when search is over*/
+					$(`[type="submit"]`).val(`Search`);
+					$(`[type="search"]`).prop(`disabled`, false);
+				}/*END success: function*/
+			}/*END $.ajax object setting*/
+		)/*END $.ajax()*/
 
-				/*turn the search box submit back to normal when search is over*/
-				$(`[type="submit"]`).val(`Search`);
-				$(`[type="search"]`).prop(`disabled`, false);
-			})/*END .fail()*/
-		})/*END .on()*/
-	)/*END .ready()*/
+		/*incase or error that might occur*/
+		.fail(function(jqXHR, textStatus, errorThrown) {
+			$(`#divphotos`).html(jqXHR.status + " " + jqXHR.statusText + " - try again or refresh ik");
+
+			/*turn the search box submit back to normal when search is over*/
+			$(`[type="submit"]`).val(`Search`);
+			$(`[type="search"]`).prop(`disabled`, false);
+		})/*END .fail()*/
+	})/*END .on()*/
+)/*END .ready()*/
 
 /*good work ik, mostly in jq, due to me wanting to practice jq as well
 +\ also i could have added `no result found` too*/
