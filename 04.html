@@ -53,48 +53,49 @@
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState === 4) {
 //			if (xhr.status === 200) {
-				/*convert to js object*/
-				let parseXhr = JSON.parse(xhr.responseText); 
 
-				let ulist = `<ul>`;
+            /*convert to js object*/
+            let parseXhr = JSON.parse(xhr.responseText); 
 
-				for (let i = 0; i < parseXhr.length; i++) {
-					if (parseXhr[i][`inoffice`] === true) {
-						ulist += `<li class="in">${parseXhr[i][`name`]} - IN</li>`;
-					}
+            let ulist = `<ul>`;
 
-					else if (parseXhr[i][`inoffice`] === false) {
-						ulist += `<li class="out">${parseXhr[i][`name`]} - OUT</li>`;
-					}
+            for (let i = 0; i < parseXhr.length; i++) {
+                if (parseXhr[i][`inoffice`] === true) {
+                    ulist += `<li class="in">${parseXhr[i][`name`]} - IN</li>`;
+                }
 
-					/*not important but to show object on console*/
-					console.log(parseXhr[i])  
-				}
+                else if (parseXhr[i][`inoffice`] === false) {
+                    ulist += `<li class="out">${parseXhr[i][`name`]} - OUT</li>`;
+                }
 
-				ulist += `</ul>`;   
+                /*not important but to show object on console*/
+                console.log(parseXhr[i])  
+            }
 
-				/*add list to html*/
-				div_container.innerHTML = ulist;
+            ulist += `</ul>`;   
 
-				/*NI but to show html element on CL*/
-				console.log( ulist) 
-			}
+            /*add list to html*/
+            div_container.innerHTML = ulist;
 
-			/*if anything goes wrong, than we can see why*/
-			else {                        
-				window.alert(xhr.statusText + xhr.status);
-				console.log(xhr.readyState)
-			}
-//		}
+            /*NI but to show html element on CL*/
+            console.log( ulist) 
+        }
+
+        /*if anything goes wrong, than we can see why*/
+        else {      /*1+*/
+            window.alert(xhr.statusText + xhr.status);
+            console.log(xhr.readyState)
+        }
 		/*ik i could also do another else alert here but unnecessary*/
-	}
+	}; /*END xhr.onreadystatechange */
 
 	/*using .json object file*/
 	xhr.open(`GET`, `03jsonEmp.json`);
 
 	xhr.send();
 
-	/*this is the frontend side of ajax, however the backend would set up the forms and database for this example of attendance*/
+	/*1+ however you should be more specific with the errors as it will trigger all the other xhr state which is not an error.
+    +\this is the frontend side of ajax, however the backend would set up the forms and database for this example of attendance */
 
 /*------------------------- /script /////////////////////////////*/
 // printD(html);

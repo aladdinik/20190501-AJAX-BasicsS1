@@ -58,7 +58,7 @@
 						ulist += `<li class="in">${element.name}</li>`;  /*2+*/
 					}
 					else {
-						ulist += `<li class="out">${data[index]["name"]}</li>`; /*3+*/ 
+						ulist += `<li class="out">${data[index]["name"]}</li>`; /*3+*/
 					}
 				}) /*END OF .each()*/
 
@@ -71,7 +71,7 @@
 
 	); /*END OF.ready()*/
 
-/*1+ you have to use the $ sign as your selector, it will not accept anything else form what i can see when using json data
+/*1+ you have to use the $ sign as your selector, it will not accept anything else from what i can see when using json data
 2+ element is the current value that the loop is on.
 3+ data is similar to element but you have to type the full data info for it to know what the current value is in the loop.
 +\ you might have notice that 09.html file will work more often than 04.html v.js file because jq have better compatibility than v.js */

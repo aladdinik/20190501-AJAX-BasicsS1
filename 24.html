@@ -96,7 +96,7 @@ $(document).ready(
 			}/*END $.ajax object setting*/
 		)/*END $.ajax()*/
 
-		/*incase or error that might occur*/
+		/*incase of error that might occur*/
 		.fail(function(jqXHR, textStatus, errorThrown) {
 			$(`#divphotos`).html(jqXHR.status + " " + jqXHR.statusText + " - try again or refresh ik");
 
